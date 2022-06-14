@@ -1,0 +1,169 @@
+{% extends "./index.html" %}
+{% block title%} Min-Server Dashboard | Government Transport System {% endblock %}
+{% block action%}Logout{% endblock %}
+
+<!-- {%load static%} -->
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-6" style="padding:1rem;">
+            <div class="card shadow-lg border-0 rounded-lg mt-1">
+                <div class="card-header" style="padding: 0.0rem;"><h4 class="text-center font-weight-light my-4">Settings</h4></div>
+                <div class="card-body" style="padding:0.5rem 2rem;">
+                    <form >
+                        <div class="form-group">
+                            <label class="large mb-1" for="cardId">Message Status</label>
+                            {%for message in messages%}
+                            {% if message.tags == 'warning'%}
+                                <div class="alert-danger" style="padding:10px; border-radius:6px;margin-top: 4px;">{{message}}</div>
+                            {% elif message.tags == 'info' %}
+                                <div class="alert-success" style="padding:10px; border-radius:6px;">{{message}}</div>
+                            {%endif%}
+                            {%endfor%}
+
+                            <!-- <input class="form-control py-4" id="cardId" type="text" placeholder="Status" name="cardId" required readonly/> -->
+
+                        </div>
+                    </form>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Configure COM Port</label> <br>
+                            <a href="/settings">  &nbsp; &nbsp; &nbsp;
+                            <button type="submit" class="sbtn btn btn-warning btn-lg btn-c" onclick="spinner()"><i class="fa fa-cogs" aria-hidden="true"></i></button>
+                            </a>
+                            <div class="loader">
+                                <div class="loading">
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comport">Device COM PORT</label>
+                            <input class="form-control py-4" id="comport" type="text" placeholder="COM Port ??" value="{{comport}}"  readonly/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Test Connection</label> <br>
+                            <a href="/test_connection/">  &nbsp; &nbsp; &nbsp;
+                            <button  class="sbtn btn btn-warning btn-lg btn-c" onclick="spinner1()"><i class="fa fa-link" aria-hidden="true"></i></button>
+                            </a>
+                            <div class="loader1">
+                                <div class="loading1">
+                                </div>
+                            </div>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comtest">Computer to Hardware Connection</label>
+                            <input class="form-control py-4" id="comtest" type="text" placeholder="Connection Test ?? "  required readonly/>
+                            </div>
+                        </div>
+                        <br>
+                        <h6>Card Operations</h6>    
+                        <div class="form-group d-flex align-items-center justify-content-between mt-3 mb-0">
+                            <a class="btn btn-danger" href="#">Block</a>
+                            <a class="btn btn-secondary" href="#">De-activate</a>
+                            <a class="btn btn-success" href="#">Activate</a>
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6" style="padding:1rem;">
+            <ol id="ol" style="padding-top: 10px; padding-bottom:1px;padding-left:260px">
+                
+                
+            </ol>
+           
+            <div class="card shadow-lg border-0 rounded-lg mt-2">
+                <div class="card-header"><i class="fas fa-table mr-1"></i>
+                    Configuration table
+                </div>
+                <div class="card-body" style="padding:1rem 2rem;" >
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Transport Platform</label> <br>
+                            <a href="">  &nbsp; &nbsp; &nbsp;
+                            <button  class="sbtn btn btn-success btn-lg btn-c" "><i class="fa fa-bus" aria-hidden="true"></i></button>
+                            </a>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comtest"></label> Type of Transport
+                            <input class="form-control py-4" id="comtest" type="text" value="Dar Rapid Bus Transit (DART)"  required readonly/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Transport Station</label> <br>
+                            <a href="">  &nbsp; &nbsp; &nbsp;
+                            <button  class="sbtn btn btn-success btn-lg btn-c" "><i class="fas fa-warehouse"></i></button>
+                            </a>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comtest"></label> Station and ID
+                            <input class="form-control py-4" id="comtest" type="text" value="{{statioName}}- {{stationID}}"  required readonly/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Station Supervisor</label> <br>
+                            <a href="">  &nbsp; &nbsp; &nbsp;
+                            <button  class="sbtn btn btn-success btn-lg btn-c" "><i class="fas fa-user-tie"></i></button>
+                            </a>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comtest"></label> Supervisor
+                            <input class="form-control py-4" id="comtest" type="text" value="{{user.first_name}} - {{user.last_name}} ({{user.username}})"  required readonly/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">Station Operator</label> <br>
+                            <a href="">  &nbsp; &nbsp; &nbsp;
+                            <button  class="sbtn btn btn-warning btn-lg btn-c" "><i class="fas fa-user"></i></button>
+                            </a>
+
+                            </div>
+                            <div class="col-7">
+                            <label class="large mb-1" for="comtest"></label> Agent
+                            <input class="form-control py-4" id="comtest" type="text" value="{{user.first_name}} - {{user.last_name}} ({{user.username}})"  required readonly/>
+                            </div>
+                        </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+            function spinner() {
+                document.getElementsByClassName("loader")[0].style.display = "block";
+            };
+            function spinner1() {
+                document.getElementsByClassName("loader1")[0].style.display = "block";
+            };
+
+        var ws = new WebSocket("ws://127.0.0.1:5680/");
+        ws.onmessage = function (event) {
+                var response = JSON.parse(event.data);
+                console.log(response.test);                
+                if (response.test != " "){
+                    document.getElementById('comtest').value= response.test;
+                    
+                };
+        };
+            
+        </script>
+{% endblock js%}

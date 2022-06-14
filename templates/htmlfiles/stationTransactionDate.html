@@ -1,0 +1,146 @@
+{% extends "./index.html" %}
+{% block title%} Transactions | Universal Campus SmartCard Payment System {% endblock %}
+{% block action%}Logout{% endblock %}
+
+
+{%load static%}
+ {% block content %}
+      <div class="container-fluid">
+            <ol class="breadcrumb mb-1">
+                <li class="breadcrumb-item active">
+                <!-- <h5><b>{{stationName}} {{station}} Transactions</b></h5> -->
+                <h5><b>All Transactions</b></h5>
+                </li>
+            </ol>
+            <div class="row">
+               <div class="col-xl-4 col-md-6 mb-1" > <a class="nav-link" href="">
+                   <div class="card border-left-primary shadow h-100 py-2">
+                       <div class="card-body" style="color: #084e94;">
+                           <div class="row no-gutters align-items-center">
+                               <div class="col mr-2">
+                                 <div class="text-xs font-weight-bold text-gray-800 mb-1">Cafeterial Transactions</div>
+                                 <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                 Tsh {{intrans}} <i class="fa fa-arrow-down fa-1x" aria-hidden="true"></i>
+                                 </div>
+                               </div>
+                               <div class="col-auto">
+                               <i class="fas fa-coins fa-2x text-gray-200"></i>
+                               </div>
+                           </div>
+                       </div>
+                   </div></a>
+               </div>
+               <div class="col-xl-4 col-md-6 mb-1" > <a class="nav-link" href="">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body" style="color: #084e94;">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-gray-800 mb-1">Block1 Shop</div>
+                                <div class="h6 mb-0 font-weight-bold text-gray-800">
+                                Tsh {{outrans}} <i class="fa fa-arrow-down fa-1x" aria-hidden="true"></i>
+                                </div>
+                              </div>
+                              <div class="col-auto">
+                              <i class="fas fa-coins fa-2x text-gray-200"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div></a>
+              </div>
+              <div class="col-xl-4 col-md-6 mb-1" > <a class="nav-link" href="">
+               <div class="card border-left-primary shadow h-100 py-2">
+                   <div class="card-body" style="color: #084e94;">
+                       <div class="row no-gutters align-items-center">
+                           <div class="col mr-2">
+                             <div class="text-xs font-weight-bold text-gray-800 mb-1">Block3 Shop</div>
+                             <div class="h6 mb-0 font-weight-bold text-gray-800">
+                             Tsh {{outrans}} <i class="fa fa-arrow-down fa-1x" aria-hidden="true"></i>
+                             </div>
+                           </div>
+                           <div class="col-auto">
+                           <i class="fas fa-coins fa-2x text-gray-200"></i>
+                           </div>
+                       </div>
+                   </div>
+               </div></a>
+           </div>
+           <div class="col-xl-4 col-md-6 mb-1" > <a class="nav-link" href="">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body" style="color: #084e94;">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-gray-800 mb-1">Block6 Shop</div>
+                          <div class="h6 mb-0 font-weight-bold text-gray-800">
+                          Tsh {{outrans}} <i class="fa fa-arrow-down fa-1x" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                        <i class="fas fa-coins fa-2x text-gray-200"></i>
+                        </div>
+                    </div>
+                </div>
+            </div></a>
+           </div>
+               <div class="col-xl-4 col-md-6 mb-1" > <a class="nav-link" href="">
+                  <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body" style="color: #084e94;">
+                          <div class="row no-gutters align-items-center">
+                              <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-gray-800 mb-1">Ecowater </div>
+                              <div class="h6 mb-0 font-weight-bold text-gray-800">
+                              Tsh {{outrans}} <i class="fa fa-arrow-up fa-1x" aria-hidden="true"></i>
+                              </div>
+                              </div>
+                              <div class="col-auto">
+                              <i class="fas fa-coins fa-2x text-gray-200"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div></a>
+              </div>
+               
+           </div>
+        
+            <h6>&nbsp;&nbsp;&nbsp;&nbsp; <b>Total Transactions per Business</b></h6>
+
+                <div class="container-fluid">
+                     <div class="card mb-1">
+                        <div class="card-header">
+                           <i class="fas fa-table mr-1"></i>
+                           Transaction table
+                        </div>
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                 <thead>
+                                    <tr>
+                                       <th>TransactionID</th>
+                                       <th>Card ID</th>
+                                       <th>Transaction Amount</th>
+                                       <th>Service</th>
+                                       <th>Time</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody id="myTable">
+                                    {% for detail in transaction %} 
+                                    <tr>
+                                       <td>{{detail.transaction}}</td>
+                                       <td>{{detail.UserID}}</td>
+                                       <td>{{detail.transactionAmount}}</td>
+                                       <td>{{detail.InOut}}</td>
+                                       <td>{{detail.time}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                 </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+
+       {% endblock %}
+       {% block js %}
+         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+       {% endblock %}

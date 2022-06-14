@@ -1,0 +1,220 @@
+{% extends "./index.html" %}
+{% block title%} Min-Server Dashboard | Government Transport System {% endblock %}
+{% block action%}Logout{% endblock %}
+
+<!-- {%load static%} -->
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-5 col-xs-10">
+            <div class="card shadow-lg border-0 rounded-lg mt-1">
+                <div class="card-header" style="padding: 0.0rem;">
+                    <h5 class="text-center font-weight-light my-4"><b>Recharge Smart Card</b></h5>
+                </div>
+                <div class="card-body" style="padding: 1rem;">
+                    <form method="POST" action="/topup/" >
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col">
+                            {%for message in messages%}
+                            {% if message.tags == 'error'%}
+                                <div class="alert-danger" style="padding:10px; border-radius:6px">{{message}}</div>
+                            {% elif message.tags == 'info' %}
+                                <div class="alert-success" style="padding:10px; border-radius:6px">{{message}}</div>
+                            {%endif%}
+                            {%endfor%}
+                              <label class="large mb-1" for="cardId"> Card ID</label>
+                              <input id="cardId" type="number" class="form-control" name="cardId" placeholder="Card ID">
+                            </div>
+                          </div>
+                        <div class="form-group">
+                            
+                            <label class="large mb-1" for="amount">Amount to TopUp</label>
+                            <input class="form-control py-4" id="amount" type="number" placeholder="Enter Amount to Recharge" name="amount" required min="400" max="99000"/>
+                        </div>
+                        <div class="form-row">
+                            <div class="col">
+                            <label class="large mb-1" for="agentId">AgentID</label>
+                            <input class="form-control py-4" id="agentId" type="text" value="{{user}}" name="agentId" required readonly/>
+                            </div>
+                            <div class="col">
+                            <label class="large mb-1" for="station">StationID</label>
+                            <select class="form-control" id="station" name="station" required>
+                                <option disabled value="">Select Station</option>
+                                {%for station in station%}
+                                <option selected value={{station.station}}>{{station.stationName}}</option>
+                               {%endfor%}
+                            </select>
+                            <!-- <input class="form-control py-4" id="station" type="text" value="Kivukoni-Dar-es-Salaam" name="station" required readonly/> -->
+                            </div>
+                            
+                        </div>
+
+                        <div class="form-group d-flex align-items-center justify-content-between mt-3 mb-0">
+                            <button type="reset" id="" onclick="changeValue(this)" class="btn btn-danger">Clear</button>
+                            <a class="large" href="#"></a>
+                            <a class="large" href="#"></a>
+                            <input type= "submit" class="btn btn-success" value="Top UP">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-7 col-md-7 col-xs-10" style="padding: 1px 20px;">
+            
+            <div class="card shadow-lg border-0 rounded-lg mt-1" style="padding: 10px;">
+                <h5 style="padding-bottom: 0px; text-align:center;">Select Amount to Top Up</h5>
+                <div class="form-row" style="padding: 10px;text-align:center">
+                  <div class="col">
+                    <button id="500" onclick="changeValue(this)" class="btn btn-secondary btn-lg">500</button>
+                  </div>
+                  <div class="col">
+
+                    <button id="500" onclick="changeValue(this)" class="btn btn-secondary btn-lg">1000</button>
+                  </div>
+                  <div class="col">
+                    
+                    <button id="500" onclick="changeValue(this)" class="btn btn-secondary btn-lg">1500</button>
+                  </div>
+                  <div class="col">
+                    
+                    <button id="500" onclick="changeValue(this)" class="btn btn-secondary btn-lg">2000</button>
+                  </div>
+                </div>
+                <div class="form-row" style="padding: 10px; text-align:center">
+                    <div class="col">
+                      
+                    <button id="500" onclick="changeValue(this)" class="btn btn-info btn-lg">2500</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-info btn-lg">3000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-info btn-lg">4000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-info btn-lg">5000</button>
+                    </div>
+                </div>
+                <div class="form-row" style="padding: 10px;text-align:center">
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-primary btn-lg">6000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-primary btn-lg">7000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-primary btn-lg">8000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-primary btn-lg">10000</button>
+                    </div>
+                </div>
+                <div class="form-row" style="padding: 10px;text-align:center">
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-warning btn-lg">20000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-warning btn-lg">30000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-warning btn-lg">40000</button>
+                    </div>
+                    <div class="col">
+                      
+                        <button id="500" onclick="changeValue(this)" class="btn btn-warning btn-lg">50000</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow-lg border-0 rounded-lg mt-1" style="padding: 20px;">
+                <div class="form-row" style="font-size: larger;" >
+                    <div class="col-6">
+                        <label class="large mb-1" for="rechargestatus"> Smart Card Top Up Status</label>
+                        <input class="form-control" id="rechargestatus" type="text" placeholder="Status??" name="rechargestatus"  style="color: rgb(3, 3, 66);font-weight:600;"/>
+                    </div>
+                    <div class="col">
+                        <label class="large mb-1" for="comtest"> Card Status</label>
+                        <input id="cardstatus" type="text" class="form-control" placeholder="Card Status ??">
+                    </div>
+                    <div class="col">
+                        <label class="large mb-1" for="comtest"> Connection</label>
+                        <input id="comtest" type="text" class="form-control" placeholder="Connection Test ??">
+                    </div>
+                </div>
+    
+                <form>
+                    <div class="form-row">
+                      <div class="col">
+                        <label class="large mb-1" for="cardId"> Card ID</label>
+                        <input id="cardId1" type="text" class="form-control" placeholder="Card ID">
+                      </div>
+                      <div class="col">
+                        <label class="large mb-1" for="balance"> e-Card Balance</label>
+                        <input id="balance" type="text" class="form-control" placeholder="Balance">
+                      </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-row">
+                      <div class="col">
+                        <label class="large mb-1" for="topupAmount"> TopUp Amount</label>
+                        <input id="topupAmount" type="text" class="form-control" placeholder="Top up Amount">
+                      </div>
+                      <div class="col">
+                        <label class="large mb-1" for="newbalance"> New Balance</label>
+                        <input id="newbalance" type="text" class="form-control" placeholder="New balance">
+                      </div>
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <ol id="ol" style="padding-top: 10px; padding-bottom:1px;padding-left:260px">
+        
+        </ol>
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:5678/");
+        ws.onmessage = function (event) {
+                var response = JSON.parse(event.data);
+                console.log(response.test);
+                //console.log(response.balance);
+                // console.log(response.logs);
+                document.getElementById('rechargestatus').value= response.status;
+                document.getElementById('cardId').value= response.cardId;
+                document.getElementById('balance').value= response.balance;
+                document.getElementById('topupAmount').value= response.topupAmount;
+                document.getElementById('newbalance').value= response.newbalance;
+                document.getElementById('cardstatus').value= response.cardstatus;
+                
+                if (response.test != " "){
+                    document.getElementById('comtest').value= response.test;
+                    
+                };
+        };
+        function changeValue(o){
+            document.getElementById('amount').value=o.innerHTML;
+           }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+{% endblock js%}

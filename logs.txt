@@ -1,0 +1,37 @@
+
+2021-02-17 14:11:56.007889----->CardID: 16925016322:Authenticating..Reading...DataRead:78128AvailableBalance: 78128Authenticating..AddingBalance1500...79628:e-CardBalance: :79628NewBalance: 79628:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 78128CardStatus:-> Top Up Success 
+2021-02-17 14:12:05.999550----->CardID: 16925016322:Authenticating..Reading...DataRead:79628AvailableBalance: 79628Authenticating..AddingBalance2000...81628:e-CardBalance: :81628NewBalance: 81628:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 79628CardStatus:-> Top Up Success 
+2021-02-17 14:12:13.316423----->CardID: 16925016322:Authenticating..Reading...DataRead:81628AvailableBalance: 81628Authenticating..AddingBalance1000...82628:e-CardBalance: :82628NewBalance: 82628:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 81628CardStatus:-> Top Up Success 
+2021-02-17 14:12:25.075435----->CardID: 16925016322:Authenticating..Reading...DataRead:82628AvailableBalance: 82628Authenticating..AddingBalance1500...84128:e-CardBalance: :84128NewBalance: 84128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 82628CardStatus:-> Top Up Success 
+2021-02-17 15:30:34.644710----->CardID: 4111014616:Authenticating..Reading...DataRead:98592AvailableBalance: 98592Authenticating..AddingBalance500...84128:e-CardBalance: :84128NewBalance: 84128:CheckingResult:Top Up Success CardStatus :123441816897003150318940 CardStatus:Blocked  
+
+CardUID:-> 4111014616 Balance:-> 98592CardStatus:-> Top Up Success 
+2021-03-01 17:29:20.146704----->CardID: 4111014616:Authenticating..Reading...DataRead:84128AvailableBalance: 84128Authenticating..AddingBalance1000...85128:e-CardBalance: :85128NewBalance: 85128:CheckingResult:Top Up Success CardStatus :123441816897003150318940 CardStatus:Blocked  
+
+CardUID:-> 4111014616 Balance:-> 84128CardStatus:-> Top Up Success 
+2021-03-01 19:25:31.065126----->CardID: 16925016322:Authenticating..Reading...DataRead:84128AvailableBalance: 84128Authenticating..AddingBalance3000...87128:e-CardBalance: :87128NewBalance: 87128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 84128CardStatus:-> Top Up Success 
+2021-03-01 19:25:41.506498----->CardID: 16925016322:Authenticating..Reading...DataRead:87128AvailableBalance: 87128Authenticating..AddingBalance4000...91128:e-CardBalance: :91128NewBalance: 91128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 87128CardStatus:-> Top Up Success 
+2021-03-01 19:25:51.329114----->CardID: 4111014616:Authenticating..Reading...DataRead:85128AvailableBalance: 85128Authenticating..AddingBalance4000...89128:e-CardBalance: :89128NewBalance: 89128:CheckingResult:Top Up Success CardStatus :123441816897003150318940 CardStatus:Blocked  
+
+CardUID:-> 4111014616 Balance:-> 85128CardStatus:-> Top Up Success 
+2021-03-01 19:26:30.796354----->CardID: 16925016322:Authenticating..Reading...DataRead:91128AvailableBalance: 91128Authenticating..AddingBalance1000...92128:e-CardBalance: :92128NewBalance: 92128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 91128CardStatus:-> Top Up Success 
+2021-03-01 19:26:39.143276----->CardID: 16925016322:Authenticating..Reading...DataRead:92128AvailableBalance: 92128Authenticating..AddingBalance2000...94128:e-CardBalance: :94128NewBalance: 94128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 92128CardStatus:-> Top Up Success 
+2021-03-02 09:09:41.808519----->CardID: 16925016322:Authenticating..Reading...DataRead:94128AvailableBalance: 94128Authenticating..AddingBalance4000...98128:e-CardBalance: :98128NewBalance: 98128:CheckingResult:Top Up Success CardStatus :5555551415361946 CardStatus:Active  
+
+CardUID:-> 1692501632 Balance:-> 94128CardStatus:-> Top Up Success 

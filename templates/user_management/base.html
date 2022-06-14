@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Universal Campus  Smartcard Payment System </title>
+        <link href="{% static 'styles.css' %}" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body  style=" background-image: url('{% static '14.jpg' %}');background-size:cover;background-repeat:no-repeat; " > 
+    <sectright style ="background-color:">
+        <div class="card-header" style ="background-color: #000045;; height:100px; color:white">
+        
+        <h4 class="text-center font-weight-bold my-4">UNIVERSAL CAMPUS SMARTCARD PAYMENT SYSTEM  </h4>
+        </div>
+
+    </sectright>
+        {% block 'body'%}
+
+                
+
+        {% endblock 'body'%}
+        
+        {% block js %}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{% static 'scripts.js' %}"></script>
+        {% endblock js %}
+    </body>
+</html>

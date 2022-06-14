@@ -1,0 +1,68 @@
+{% load static %}
+<div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="/dashboard">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            
+                            <div class="sb-sidenav-menu-heading">Transactions</div>
+                            <a class="nav-link" href={% url 'TransactionPage' %}>
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Transaction
+                                </a>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class='fas fa-hand-holding-usd'></i></div>
+                                Transaction(Dates)
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+
+                            
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Transactions (Daily,Weekly,..)
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="/transaction_by_date/daily">Daily </a>
+                                            <a class="nav-link" href="/transaction_by_date/weekly">Weekly </a>
+                                            <a class="nav-link" href="/transaction_by_date/monthly">Monthly </a>
+                                            <a class="nav-link" href="/transaction_by_date/yearly">Yearly </a>
+                                        </nav>
+                                    </div>
+
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="#">...</a>
+                                           
+                                        </nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+
+                            <a class="nav-link" href="/topup">
+                                <div class="sb-nav-link-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></div>
+                            Top Up
+                            </a>
+                            <a class="nav-link" href="/CardRegister">
+                                <div class="sb-nav-link-icon"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></div>
+                            Register Card
+                            </a>
+                            <a class="nav-link" href="/settings">
+                                <div class="sb-nav-link-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+                            Settings
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        <b style="color: #079fb7;">{{user.username}}</b>
+                    </div>
+                </nav>
+        </div>
